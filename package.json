@@ -1,0 +1,19 @@
+{
+  "name": "login-app",
+  "version": "1.0.0",
+  "description": "Full stack authentication application with MERN",
+  "type": "module",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "install-all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm--prefix client run build && npm --prefix server run build",
+    "start": "npm start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
