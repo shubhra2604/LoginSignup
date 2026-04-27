@@ -1,97 +1,162 @@
-# Login App - Full Stack Authentication
+# 🚀 LoginSignup - Full Stack Authentication App
 
-A complete MERN stack authentication application with login, signup, and user dashboard.
+A complete **MERN stack authentication system** with secure login, signup, and protected user dashboard. This project demonstrates real-world full-stack development with proper deployment and authentication practices.
 
-## Tech Stack
+---
 
-- **Frontend**: React 18 + Vite + React Router
-- **Backend**: Node.js + Express
-- **Database**: MongoDB
-- **Authentication**: JWT (JSON Web Tokens)
+## 🌐 Live Demo
 
-## Project Structure
+- **Frontend**: https://login-app-client-t61m.onrender.com
+- **Backend API**: https://login-app-server-uu44.onrender.com
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- React 18 (Vite)
+- React Router
+- Context API (State Management)
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- MongoDB Atlas
+
+### Authentication
+
+- JWT (JSON Web Tokens)
+- bcryptjs (Password Hashing)
+
+---
+
+## 🏗 Architecture
+
+Frontend (React + Vite) → Render Static Site
+Backend (Node + Express) → Render Web Service
+Database → MongoDB Atlas
+Authentication → JWT-based system
+
+---
+
+## ✨ Features
+
+- ✅ User Signup & Login
+- ✅ Secure Authentication with JWT
+- ✅ Protected Routes (Frontend + Backend)
+- ✅ User Dashboard
+- ✅ Logout Functionality
+- ✅ Password Hashing (bcrypt)
+- ✅ Error Handling & Validation
+- ✅ Fully Deployed (Frontend + Backend)
+
+---
+
+## 📂 Project Structure
 
 ```
-LoginPage/
+LoginSignup/
 ├── client/                 # React frontend
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── context/       # Auth context
-│   │   ├── api.js         # API calls
-│   │   ├── App.jsx        # Main app
-│   │   └── index.css      # Global styles
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── api.js
+│   │   ├── App.jsx
+│   │   └── index.css
 │   ├── package.json
 │   ├── vite.config.js
 │   └── index.html
-└── server/                # Express backend
-    ├── models/            # Mongoose models
-    ├── routes/            # API routes
-    ├── middleware/        # Custom middleware
-    ├── server.js          # Main server
-    ├── package.json
-    └── .env.example
+│
+├── server/                # Express backend
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── server.js
+│   ├── package.json
+│   └── .env.example
+│
+└── README.md
 ```
 
-## Setup Instructions
+---
 
-### 1. MongoDB Setup
+## ⚙️ Setup Instructions
 
-1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a free account and cluster
-3. Create a database user with read/write access
-4. Get your connection string: `mongodb+srv://username:password@cluster.mongodb.net/dbname`
+### 1️⃣ Clone the Repository
 
-### 2. Backend Setup
+```
+git clone https://github.com/shubhra2604/LoginSignup.git
+cd LoginSignup
+```
 
-```bash
+---
+
+### 2️⃣ Backend Setup
+
+```
 cd server
 npm install
 cp .env.example .env
 ```
 
-Edit `.env` with your values:
+Update `.env`:
 
 ```
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/dbname
-JWT_SECRET=your_secret_key_here
+MONGODB_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
 PORT=5000
 CLIENT_URL=http://localhost:5173
 ```
 
-Start the server:
+Run backend:
 
-```bash
+```
 npm run dev
 ```
 
-Server runs at `http://localhost:5000`
+---
 
-### 3. Frontend Setup
+### 3️⃣ Frontend Setup
 
-```bash
+```
 cd client
 npm install
 npm run dev
 ```
 
-Frontend runs at `http://localhost:5173`
+---
 
-## Features
+## 🔐 Environment Variables
 
-✅ User Registration (Signup)
-✅ User Login with JWT
-✅ Protected Routes
-✅ User Dashboard
-✅ Logout Functionality
-✅ Password Hashing with bcrypt
-✅ Email Validation
-✅ Error Handling
+### Backend (`server/.env`)
 
-## API Endpoints
+```
+MONGODB_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
+PORT=5000
+CLIENT_URL=http://localhost:5173
+```
 
-**POST** `/api/auth/signup` - Register new user
+### Frontend (`client/.env`)
 
-```json
+```
+VITE_API_URL=http://localhost:5000
+```
+
+---
+
+## 📡 API Endpoints
+
+### 🔹 Signup
+
+**POST** `/api/auth/signup`
+
+```
 {
   "name": "John Doe",
   "email": "john@example.com",
@@ -100,81 +165,87 @@ Frontend runs at `http://localhost:5173`
 }
 ```
 
-**POST** `/api/auth/login` - Login user
+---
 
-```json
+### 🔹 Login
+
+**POST** `/api/auth/login`
+
+```
 {
   "email": "john@example.com",
   "password": "password123"
 }
 ```
 
-**GET** `/api/auth/me` - Get current user (requires JWT token)
+---
 
-## Deployment on Vercel
+### 🔹 Get Current User
 
-### Backend Deployment (Railway/Heroku Alternative)
-
-Since Vercel is primarily for frontend, deploy backend to:
-
-- **Railway**: [railway.app](https://railway.app) - Free, easy setup
-- **Heroku**: [heroku.com](https://heroku.com)
-- **Render**: [render.com](https://render.com)
-
-### Frontend Deployment
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Set environment variables:
-   ```
-   VITE_API_URL=https://your-backend-url.com
-   ```
-5. Deploy!
-
-## Testing
-
-1. Sign up with a new account
-2. Verify the user is stored in MongoDB
-3. Login with the credentials
-4. View the dashboard
-5. Logout
-
-## Security Features
-
-- Passwords hashed with bcryptjs
-- JWT token-based authentication
-- Protected API routes
-- Email validation
-- CORS enabled for frontend
-
-## Troubleshooting
-
-**"Cannot connect to MongoDB"**
-
-- Check your connection string in `.env`
-- Ensure IP whitelist includes your IP on MongoDB Atlas
-
-**"CORS error"**
-
-- Check `CLIENT_URL` in backend `.env`
-- Ensure it matches your frontend URL
-
-**"Token expired"**
-
-- Clear localStorage and login again
-- Token expires in 7 days
-
-## Next Steps
-
-- Add email verification
-- Add password reset functionality
-- Add user profile editing
-- Add social login (Google, GitHub)
-- Add refresh tokens
-- Implement rate limiting
-- Add logging and monitoring
+**GET** `/api/auth/me`
+(Requires JWT Token)
 
 ---
 
-Built with ❤️ for learning MERN stack
+## 📸 Screenshots
+
+> _(Add screenshots here before submitting)_
+
+```
+/screenshots/login.png
+/screenshots/dashboard.png
+```
+
+---
+
+## 🚀 Deployment
+
+- **Frontend** deployed on Render (Static Site)
+- **Backend** deployed on Render (Web Service)
+- MongoDB hosted on MongoDB Atlas
+
+---
+
+## ⚠️ Challenges Faced
+
+- Handling **client-side routing issue on refresh** (fixed using rewrite rules)
+- Debugging **build failures in CI/CD (Render)**
+- Managing **environment variables across frontend & backend**
+- Properly separating **client and server deployment**
+
+---
+
+## 💡 Why This Project?
+
+This project demonstrates:
+
+- Full-stack development using MERN stack
+- Secure authentication system using JWT
+- Real-world deployment with frontend + backend separation
+- Debugging and problem-solving in production environments
+
+---
+
+## 🔮 Future Improvements
+
+- Email verification system
+- Password reset functionality
+- Social login (Google, GitHub)
+- Refresh token implementation
+- Rate limiting & security enhancements
+- Logging and monitoring
+
+---
+
+## ❤️ Author
+
+**Shubhra Kiran Bid**
+GitHub: https://github.com/shubhra2604
+
+---
+
+## ⭐ Final Note
+
+This project was built as part of an internship assessment to showcase **full-stack development, deployment, and authentication skills**.
+
+---
